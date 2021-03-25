@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Choix client</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Veuillez sélectionner un client</h1>
+        <a href="/">Home Page</a>
+        <br />
+        <form action="#" th:action="@{/listCompte}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Client:</td>
+                    <td>
+                    <select name="user_id">
+						<option th:each="client : ${listClients}" th:value="${client.code}" th:text="${client.nom}">
+    					</option>
+					</select>
+					</td>                                      
+                </tr>                                    
+                <tr>
+                    <td colspan="2"><button type="submit">Selectionner</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

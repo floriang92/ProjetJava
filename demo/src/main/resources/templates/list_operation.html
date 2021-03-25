@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>operation Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Liste des operations d'un compte</h1>
+    <a href="/">Home Page</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date operation</th>
+                <th>Montant</th>
+                <th>Type d'operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="operation : ${listOperations}">
+                <td th:text="${operation.id}">Operation ID</td>
+                <td th:text="${operation.date_operation}">Date operation</td>
+                <td th:text="${operation.montant}">Montant</td>
+                <td th:text="${operation.type_operation}">Type d'operation</td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

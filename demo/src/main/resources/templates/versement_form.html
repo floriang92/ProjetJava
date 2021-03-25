@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Versement Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Faire un versement</h1>
+    <br/><br/>
+<form action="#" th:action="@{/versementVerification}" th:object="${operation}" method="post">
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Numero de compte</th>
+                <th>Solde</th>
+                <th>Montant du versement</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>                
+				<td><input type="text" name="num_compte" readonly th:value="${compte.num_compte}" /></td>
+                <td> <input th:value="${compte.solde}" readonly type="text" /></td>
+                <td><input type="text" th:field="*{montant}" /></td>
+                <td><button type="submit">Valider</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</div>   
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Créer un nouveau Compte</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Créer un nouveau Compte</h1>
+        <br />
+        <form action="#" th:action="@{/saveCompte}" th:object="${compte}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Numero du compte:</td>
+                    <td><span>Le numéro de compte sera généré automatiquement</span></td>
+                </tr>
+                <tr>
+                    <td>Solde:</td>
+                    <td><input type="text" th:field="*{Solde}" /></td>
+                </tr>
+                <tr>
+                    <td>Client:</td>
+                    <td>
+                    <select th:field="*{user_id}">
+						<option th:each="client : ${listClients}" th:value="${client.code}" th:text="${client.nom}">
+    					</option>
+					</select>
+					</td>                                      
+                </tr>
+                <tr>
+                    <td>Type de compte:</td>
+                    <td>
+                    <select th:field="*{type_compte_id}">
+						<option th:each="typeCompte : ${listTypeCompte}" th:value="${typeCompte.id}" th:text="${typeCompte.label}">
+    					</option>
+					</select>
+					</td>                                      
+                </tr>                                        
+                <tr>
+                    <td colspan="2"><button type="submit">Créer le nouveau compte</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
